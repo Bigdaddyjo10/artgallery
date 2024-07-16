@@ -1,19 +1,18 @@
 <script setup>
-import { AppState } from './AppState'
-import Navbar from './components/Navbar.vue'
-
+import HomePage from './pages/HomePage.vue'
+import NextButton from './components/NextButton.vue';
 
 </script>
 
 <template>
   <header>
-    <Navbar />
+       <NextButton />
   </header>
   <main>
-    <router-view />
+    <HomePage />
   </main>
-  <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
+  <footer>
+
   </footer>
 </template>
 
