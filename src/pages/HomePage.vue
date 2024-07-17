@@ -18,11 +18,15 @@ onMounted(() => {
 async function getPaintings() {
   try {
     await artGalleryService.getPaintings()
-    Pop.success('✅😀')
+
   } catch (error) {
     console.error(error)
     Pop.toast('❌☹️')
   }
+}
+
+function viewDets(){
+
 }
 
 </script>
@@ -36,7 +40,7 @@ async function getPaintings() {
       <div class="row">
         <div v-for="art in artWorks" :key="art.id" class="col-md-3 p-md-1 p-5">
             <div class="card border-5 border-dark rounded-4 m-md-3 m-1 ">
-              <img role="button" class="card-img img-fluid" :src="art.imgUrls"  alt="">
+              <img @click="viewDets()" role="button" class="card-img img-fluid" :src="art.imgUrls"  alt="">
           </div>
         </div>
       </div>

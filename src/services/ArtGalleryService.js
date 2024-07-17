@@ -4,6 +4,14 @@ import Pop from "../utils/Pop.js";
 import { api } from "./AxiosService.js";
 
 class ArtGalleryService {
+  async getArtById(artId) {
+    const response = await api.get(`api/artworks/${artId}`)
+    console.log(response.data, '⏰');
+
+    const art = new ArtWorks(response.data)
+    AppState.activeArt = art
+  }
+
 
   async getPaintings() {
     const response = await api.get('api/artworks')
@@ -12,7 +20,8 @@ class ArtGalleryService {
     console.log(artWork, '🖼️');
     AppState.artWorks = artWork
     AppState.currentPage = response.data.page
-    Pop.success('WE GOT ART')
+    AppState.totalPages = response.data.pages
+
   }
 
   async loadMore(pageNumber) {
@@ -20,6 +29,7 @@ class ArtGalleryService {
     const artWork = response.data.artworks.map(infoOfArt => new ArtWorks(infoOfArt))
     AppState.artWorks = artWork
     AppState.currentPage = response.data.page
+    AppState.totalPages = response.data.pages
   }
 }
 export const artGalleryService = new ArtGalleryService();

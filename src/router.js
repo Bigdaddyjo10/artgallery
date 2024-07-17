@@ -12,6 +12,11 @@ const routes = [
     component: loadPage('HomePage')
   },
   {
+    path: '/artDetails/:aerId',
+    name: 'Art Details',
+    component: loadPage('ArtDetailsPages')
+  },
+  {
     path: '/about',
     name: 'About',
     component: loadPage('AboutPage')

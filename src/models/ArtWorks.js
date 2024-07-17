@@ -2,7 +2,6 @@ export class ArtWorks {
   constructor(data) {
     this.id = data.id
     this.slug = data.slug
-
     this.imgUrls = data.imgUrls.thumb
     this.attribution = data.attribution
     this.description = data.description
